@@ -4,11 +4,11 @@ for (var i = 0; i < updateBtns.length; i++){
     updateBtns[i].addEventListener('click', function(){
         var productId = this.dataset.product
         var action = this.dataset.action
-        console.log('productId:', productId, 'action:', action)
+        //console.log('productId:', productId, 'action:', action)
 
-        console.log('USER:', user)
+        //console.log('USER:', user)
         if (user === "AnonymousUser"){
-            console.log('Not logged in')
+            //console.log('Not logged in')
         }
         else{
             updateUserOrder(productId, action)
@@ -18,7 +18,7 @@ for (var i = 0; i < updateBtns.length; i++){
 
 function updateUserOrder(productId, action){
     console.log('User is authenticated, sending data...')
-    var url = '/update_item/'
+    var url = 'https://djangoauo-mke.azurewebsites.net/update_item/'
     fetch(url, {
         method:'POST',
         headers:{
