@@ -131,6 +131,7 @@ def checkout(request):
     context = {'items': items, 'order': order, 'cartItems': cartItems, 'shipping': False}
     return render(request, 'store/checkout.html', context)
 
+@csrf_exempt
 def updateItem(request):
     data = json.loads(request.body)
     productId = data['productId']
