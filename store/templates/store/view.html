@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="product-info">
-    <img style="width: 320px; height: 160px; margin-top: 30px; margin-bottom: 30px;" class="thumbnail" src="{{product.imageURL}}">
+    <img style="width: 320px; height: 160px; margin-top: 30px; margin-bottom: 30px;" class="thumbnail" src='static/images{{product.imageURL}}'>
     <h3>商品名稱：{{product.name}}</h3>
     <h5>價格：NT${{product.price|intcomma:0}}</h5>
     <p style="font-size: 20px;">產品特色：{{product.desc}}</p>
