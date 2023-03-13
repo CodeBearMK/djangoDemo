@@ -37,7 +37,7 @@
             
             {% for item in items %}
             <div class="cart-row">
-                <div style="flex: 2;"><img class="row-image" src="static/images{{product.imageURL}}" alt=""></div>
+                <div style="flex: 2;"><img class="row-image" src="static/images{{item.product.imageURL}}" alt=""></div>
                 <div style="flex: 2;">{{item.product.name}}</div>
                 <div style="flex: 1;">NT${{item.product.price|intcomma:0}}</div>
                 <div style="flex: 1;">

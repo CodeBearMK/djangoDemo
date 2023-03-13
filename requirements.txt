@@ -2,3 +2,4 @@ django
 django-crispy-forms
 Pillow
 whitenoise
+sqlite
