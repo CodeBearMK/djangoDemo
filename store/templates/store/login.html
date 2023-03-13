@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zh-tw">
+    <head>
+        <title>MoreBuy</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="{%  static 'images/favicon.ico' %}">
+        <link rel="stylesheet" type='text/css' href="{% static 'css/main.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #4f868c!important;">
+            <a class="navbar-brand" style="margin-left: 10px;" href="{% url 'store' %}">MoreBuy購物中心</a>
+        </nav>
+    
+        <div class="container" style="display: flex; height: 450px;">
+            <div class="register-box" style="width: 30%; margin: auto;">
+                <h2 style="text-align: center;">MoreBuy</h2>
+                <h4 style="text-align: center; margin-top: 20px; margin-bottom: 20px;">登入MoreBuy帳號</h4>
+                    <form method="POST">
+                    {% csrf_token %}
+                    <label style="font-size: 20px; margin-top: 15px; margin-bottom: 15px;"><strong>帳號</strong></label>
+                    <input class="form-control" type="text" name="username">
+                    <label style="font-size: 20px; margin-top: 15px; margin-bottom: 15px;"><strong>密碼</strong></label>
+                    <input class="form-control" type="password" name="password"><br>
+                    <button type="submit" class="btn btn-primary btn-block">登入</button>
+                    <p></p>
+                    <p style="font-size: 14px;">還沒有註冊MoreBuy帳號嗎? 趕快創建一個吧! &#x2192;<a href="/register/">建立帳號</a></p>
+                </form>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    </body>
+</html>

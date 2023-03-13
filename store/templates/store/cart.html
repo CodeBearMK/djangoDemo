@@ -1,0 +1,57 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="box-element">
+            <a class="btn btn-outline-dark" href="{% url 'store' %}">&#x2190; 繼續購物</a>
+        
+            <br>
+            <br>
+
+            <table class="table">
+                <tr>
+                    <th><h5>總量: <strong>{{order.get_cart_items}}</strong></h5></th>
+                    <th><h5>總計: <strong>NT${{order.get_cart_total|intcomma:0}}</strong></h5></th>
+                    <th>
+                        <a style="float: right; margin: 5px" class="btn btn-success" href="{% url 'checkout' %}">結帳</a>
+                    </th>
+                </tr>
+            </table>
+
+        </div>
+
+        <br>
+
+        <div class="box-element">
+            <div class="cart-row">
+                <div style="flex: 2;"></div>
+                <div style="flex: 2;"><strong>品項</strong></div>
+                <div style="flex: 1;"><strong>單價</strong></div>
+                <div style="flex: 1;"><strong>數量</strong></div>
+                <div style="flex: 1;"><strong>小計</strong></div>
+                <div style="flex: 1;"><strong>操作</strong></div>
+            </div>
+            
+            {% for item in items %}
+            <div class="cart-row">
+                <div style="flex: 2;"><img class="row-image" src="{{item.product.imageURL}}" alt=""></div>
+                <div style="flex: 2;">{{item.product.name}}</div>
+                <div style="flex: 1;">NT${{item.product.price|intcomma:0}}</div>
+                <div style="flex: 1;">
+                    <p class="quantity">x{{item.quantity}}</p>
+                    <div class="quantity">
+                        <img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="{% static 'images/arrow-up.png' %}">
+                        <img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="{% static 'images/arrow-down.png' %}">
+                    </div>
+                </div>
+                <div style="flex: 1;">NT${{item.get_total|intcomma:0}}</div>
+                <div style="flex: 1;"><button data-product="{{item.product.id}}" data-action="removeAll" type="submit" class="btn btn-success update-cart">刪除</button></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
