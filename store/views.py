@@ -9,8 +9,10 @@ from django.contrib import auth
 
 # Create your views here.
 
+@csrf_exempt
 # 註冊頁面(register)邏輯
 def register(request):
+    
     # 請求方法為POST
     if request.method == "POST":
         # 以前端表單資料POST過來建立註冊資料
@@ -40,7 +42,7 @@ def register(request):
     # Reload註冊頁面
     return render(request, 'store/register.html', {'form': form})
     
-
+@csrf_exempt
 # 登入頁面(login)邏輯
 def login(request):
 
@@ -57,7 +59,8 @@ def login(request):
         return redirect('/')
     else:
         return render(request, 'store/login.html') 
-    
+
+@csrf_exempt
 # 登出頁面(logout)邏輯
 def logout(request):
 
